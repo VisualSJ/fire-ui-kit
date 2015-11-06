@@ -12,7 +12,7 @@ Editor.registerElement({
         value: {
             type: Object,
             value: function () {
-                return { r:255, g:255, b:255, a:255 };
+                return { r:255, g:255, b:255, a:255, o:255 };
             },
             notify: true,
         },
@@ -75,7 +75,7 @@ Editor.registerElement({
             r: this.value.r|0,
             g: this.value.g|0,
             b: this.value.b|0,
-            a: this.value.a
+            a: this.value.o|0
         });
         this._colorPicker.addEventListener( 'value-changed', function (event) {
             var value_ = event.target.value;
@@ -86,7 +86,8 @@ Editor.registerElement({
                     r: value_.r,
                     g: value_.g,
                     b: value_.b,
-                    a: value_.a,
+                    a: 255,
+                    o: value_.a
                 });
             }
             else {
@@ -94,7 +95,8 @@ Editor.registerElement({
                     r: value_.r,
                     g: value_.g,
                     b: value_.b,
-                    a: value_.a,
+                    a: 255,
+                    o: value_.a
                 };
             }
 
